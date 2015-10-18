@@ -1,3 +1,3 @@
 # boltq
 
-A (BoltDB)[https://github.com/boltdb/bolt] query language
+A [BoltDB](https://github.com/boltdb/bolt) query language
