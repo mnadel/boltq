@@ -1,0 +1,11 @@
+language: go
+
+go:
+  - 1.5
+  - tip
+
+go_import_path: github.com/mnadel/boltq
+
+install:
+  - go get github.com/stretchr/testify
+  - go get github.com/boltdb/bolt
