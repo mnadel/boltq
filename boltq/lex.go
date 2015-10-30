@@ -1,6 +1,6 @@
 // adapted from: http://blog.gopheracademy.com/advent-2014/parsers-lexers/
 
-package main
+package boltq
 
 import (
 	"bufio"
