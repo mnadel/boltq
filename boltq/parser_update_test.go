@@ -18,7 +18,7 @@ func TestCanUpdateInteger(t *testing.T) {
 	assert.Equal(t, "a", bucket)
 
 	assert.Equal(t, 1, len(parsed.Fields))
-	assert.Equal(t, 3, parsed.Fields["b"])
+	assert.EqualValues(t, 3, parsed.Fields["b"])
 }
 
 func TestCanUpdateFloat(t *testing.T) {
@@ -32,7 +32,7 @@ func TestCanUpdateFloat(t *testing.T) {
 	assert.Equal(t, "a", bucket)
 
 	assert.Equal(t, 1, len(parsed.Fields))
-	assert.Equal(t, 3.14, parsed.Fields["b"])
+	assert.EqualValues(t, 3.14, parsed.Fields["b"])
 }
 
 func TestCanUpdateString(t *testing.T) {
@@ -74,7 +74,7 @@ func TestCanUpdateMultipleKeys(t *testing.T) {
 	assert.Equal(t, "a", parsed.BucketPath[0])
 
 	assert.Equal(t, 3, len(parsed.Fields))
-	assert.Equal(t, 3.14, parsed.Fields["b"])
+	assert.EqualValues(t, 3.14, parsed.Fields["b"])
 	assert.Equal(t, "dog", parsed.Fields["c"])
 	assert.Equal(t, "foobar", parsed.Fields["d"])
 }
