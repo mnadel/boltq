@@ -40,3 +40,14 @@ func TestCanLexNestedBucketUpdate(t *testing.T) {
 		assert.Equal(t, expectedTokens[i], tok, fmt.Sprintf("i = %d", i))
 	}
 }
+
+func TestCanLexMultiValueUpdate(t *testing.T) {
+	s := NewScanner(strings.NewReader("update bucket set key1 = 'new_value', key2 = 3.14"))
+
+	expectedTokens := []Token{UPDATE, WS, IDENT, WS, SET, WS, IDENT, WS, EQUALS, WS, QUOTE, IDENT, QUOTE, COMMA, WS, IDENT, WS, EQUALS, WS, IDENT, EOF}
+
+	for i := range expectedTokens {
+		tok, _ := s.Scan()
+		assert.Equal(t, expectedTokens[i], tok, fmt.Sprintf("i = %d", i))
+	}
+}
