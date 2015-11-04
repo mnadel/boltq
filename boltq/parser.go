@@ -17,6 +17,10 @@ func NewParser(r io.Reader) *Parser {
 	return &Parser{s: NewScanner(r)}
 }
 
+func (p *Parser) Reset() {
+	p.s.reset()
+}
+
 func (p *Parser) scanNextNonWhitespaceToken() (tok Token, lit string) {
 	tok, lit = p.scan()
 	if tok == WS {

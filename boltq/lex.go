@@ -34,12 +34,20 @@ type Token int
 
 type Scanner struct {
 	r *bufio.Reader
+	o io.Reader
 }
 
 var eof = rune(0)
 
-func NewScanner(r io.Reader) *Scanner {
-	return &Scanner{r: bufio.NewReader(r)}
+func NewScanner(reader io.Reader) *Scanner {
+	return &Scanner{
+		r: bufio.NewReader(reader),
+		o: reader,
+	}
+}
+
+func (s *Scanner) reset() {
+	s.r.Reset(s.o)
 }
 
 func (s *Scanner) read() rune {
